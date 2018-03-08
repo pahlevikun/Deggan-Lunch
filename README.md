@@ -1,6 +1,6 @@
-# flutter_app
+# Deggan Lunch
 
-A new Flutter application.
+A simple voting app with Flutter tech.
 
 ## Getting Started
 
