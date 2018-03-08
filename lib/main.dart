@@ -8,7 +8,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       title: 'Deggan Lunch',
+      debugShowCheckedModeBanner: false,
       theme: new ThemeData(
+        fontFamily: 'Helvetica Neue',
         primarySwatch: Colors.blue,
       ),
       home: new MyHomePage(title: 'Deggan Lunch'),
@@ -27,10 +29,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   final TextEditingController _controller = new TextEditingController();
+  final GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      key: scaffoldKey,
       appBar: new AppBar(
         title: new Text(widget.title),
       ),
@@ -56,13 +60,18 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: Colors.blue,
                   textColor: Colors.white,
                   onPressed: () {
-                    showDialog(
-                      context: context,
-                      child: new AlertDialog(
-                        title: new Text('What you typed'),
-                        content: new Text(_controller.text),
-                      ),
-                    );
+                    if(_controller.text.length<1){
+                      scaffoldKey.currentState
+                          .showSnackBar(new SnackBar(content: new Text("Please Fill Correctly!")));
+                    }else{
+                      showDialog(
+                        context: context,
+                        child: new AlertDialog(
+                          title: new Text('What you typed'),
+                          content: new Text(_controller.text),
+                        ),
+                      );
+                    }
                   },
                   child: new Text('SEND'),
                 ),
