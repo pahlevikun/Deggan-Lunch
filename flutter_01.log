@@ -1,0 +1,103 @@
+Flutter crash report; please file at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run --profile -d a1235602
+
+## exception
+
+TimeoutException: TimeoutException: Request to Dart VM Service timed out: _flutter.listViews({})
+
+```
+#0      VM.invokeRpcRaw (package:flutter_tools/src/vmservice.dart:740)
+<asynchronous suspension>
+#1      VM.invokeRpc (package:flutter_tools/src/vmservice.dart:757)
+<asynchronous suspension>
+#2      VM.refreshViews (package:flutter_tools/src/vmservice.dart:853)
+<asynchronous suspension>
+#3      VMService.waitForViews (package:flutter_tools/src/vmservice.dart:251)
+<asynchronous suspension>
+#4      FlutterDevice.waitForViews (package:flutter_tools/src/resident_runner.dart:101)
+<asynchronous suspension>
+#5      ResidentRunner.connectToServiceProtocol (package:flutter_tools/src/resident_runner.dart:624)
+<asynchronous suspension>
+#6      ColdRunner.run (package:flutter_tools/src/run_cold.dart:67)
+<asynchronous suspension>
+#7      RunCommand.runCommand (package:flutter_tools/src/commands/run.dart:340)
+<asynchronous suspension>
+#8      FlutterCommand.verifyThenRunCommand (package:flutter_tools/src/runner/flutter_command.dart:290)
+<asynchronous suspension>
+#9      FlutterCommand.run (package:flutter_tools/src/runner/flutter_command.dart:228)
+<asynchronous suspension>
+#10     CommandRunner.runCommand (package:args/command_runner.dart:194)
+<asynchronous suspension>
+#11     FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:284)
+<asynchronous suspension>
+#12     CommandRunner.run.<anonymous closure> (package:args/command_runner.dart:109)
+#13     new Future.sync (dart:async/future.dart:222)
+#14     CommandRunner.run (package:args/command_runner.dart:109)
+#15     FlutterCommandRunner.run (package:flutter_tools/src/runner/flutter_command_runner.dart:166)
+#16     run.<anonymous closure> (package:flutter_tools/runner.dart:89)
+<asynchronous suspension>
+#17     AppContext._run (package:flutter_tools/src/base/context.dart:76)
+<asynchronous suspension>
+#18     AppContext.runInZone.<anonymous closure> (package:flutter_tools/src/base/context.dart:66)
+#19     _rootRun (dart:async/zone.dart:1126)
+#20     _CustomZone.run (dart:async/zone.dart:1023)
+#21     runZoned (dart:async/zone.dart:1501)
+#22     AppContext.runInZone (package:flutter_tools/src/base/context.dart:65)
+#23     run (package:flutter_tools/runner.dart:61)
+<asynchronous suspension>
+#24     main (package:flutter_tools/executable.dart:48)
+<asynchronous suspension>
+#25     main (file:///Users/farhan/flutter/packages/flutter_tools/bin/flutter_tools.dart:16)
+#26     _startIsolate.<anonymous closure> (dart:isolate-patch/dart:isolate/isolate_patch.dart:277)
+#27     _RawReceivePortImpl._handleMessage (dart:isolate-patch/dart:isolate/isolate_patch.dart:165)
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (on Mac OS X 10.12.6 16G29, locale en, channel beta)
+    • Flutter version 0.1.4 at /Users/farhan/flutter
+    • Framework revision f914e701c5 (2 weeks ago), 2018-02-19 21:12:17 +0000
+    • Engine revision 13cf22c284
+    • Dart version 2.0.0-dev.27.0-flutter-0d5cf900b0
+
+[✓] Android toolchain - develop for Android devices (Android SDK 27.0.3)
+    • Android SDK at /Applications/adt-bundle-mac-x86_64-20140702/sdk
+    • Android NDK at /Applications/adt-bundle-mac-x86_64-20140702/sdk/ndk-bundle
+    • Platform android-27, build-tools 27.0.3
+    • ANDROID_HOME = /Applications/adt-bundle-mac-x86_64-20140702/sdk
+    • Java binary at: /Library/Java/JavaVirtualMachines/jdk1.8.0_91.jdk/Contents/Home/bin/java
+    • Java version Java(TM) SE Runtime Environment (build 1.8.0_91-b14)
+
+[✓] iOS toolchain - develop for iOS devices (Xcode 9.2)
+    • Xcode at /Applications/Xcode.app/Contents/Developer
+    • Xcode 9.2, Build version 9C40b
+    • ios-deploy 1.9.2
+    • CocoaPods version 1.4.0
+
+[✓] Android Studio (version 3.0)
+    • Android Studio at /Applications/Android Studio.app/Contents
+    • Java version OpenJDK Runtime Environment (build 1.8.0_152-release-915-b08)
+
+[!] Android Studio
+    • Android Studio at /Applications/Contents
+    ✗ Android Studio not found at /Applications/Contents
+    • Try updating or re-installing Android Studio.
+
+[✓] IntelliJ IDEA Community Edition (version 2017.2.6)
+    • Flutter plugin version 21.2.2
+    • Dart plugin version 172.4343.25
+
+[✓] VS Code (version 1.20.1)
+    • VS Code at /Applications/Visual Studio Code.app/Contents
+    • Dart Code extension version 2.9.0
+
+[✓] Connected devices
+    • Lenovo S90 A  • a1235602                                 • android-arm64 • Android 5.0.2 (API 21)
+    • Levi’s iPhone • 36d14af05e2e5816ee2f2b26fa82b3b849ce5cb3 • ios           • iOS 11.2.6
+
+! Doctor found issues in 1 category.
+```
