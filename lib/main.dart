@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: new Center(
         child: new Container(
-          margin:const EdgeInsets.all(10.0),
+          margin: const EdgeInsets.all(10.0),
           child: new Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -51,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               new Container(
-                margin:const EdgeInsets.only(top : 20.0),
+                margin: const EdgeInsets.only(top: 20.0),
                 child: new RaisedButton(
                   padding: new EdgeInsets.only(
                     left: 50.0,
@@ -60,15 +60,35 @@ class _MyHomePageState extends State<MyHomePage> {
                   color: Colors.blue,
                   textColor: Colors.white,
                   onPressed: () {
-                    if(_controller.text.length<1){
+                    if (_controller.text.length < 1) {
                       scaffoldKey.currentState
-                          .showSnackBar(new SnackBar(content: new Text("Please Fill Correctly!")));
-                    }else{
+                          .showSnackBar(new SnackBar(
+                          content: new Text("Please Fill Correctly!")));
+                    } else {
                       showDialog(
                         context: context,
+                        barrierDismissible: false,
                         child: new AlertDialog(
-                          title: new Text('What you typed'),
-                          content: new Text(_controller.text),
+                          title: new Text('Warning!'),
+                          content: new Text(
+                              "Are you sure vote for " + _controller.text +
+                                  "?"),
+                          actions: <Widget>[
+                            new FlatButton(
+                              child: new Text('No'),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                            new FlatButton(
+                              child: new Text('Yes'),
+                              onPressed: (
+
+                                  ) {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                          ],
                         ),
                       );
                     }
